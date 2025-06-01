@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Love</title>
+  <title>Love U</title>
   <style>
     html, body {
       margin: 0;
@@ -106,7 +106,12 @@
     for (let i = 0; i < 10; i++) {
       setTimeout(createFloatingText3D, i * 200);
     }
-    setInterval(createFloatingText3D, 500);
+    const MAX_TEXTS = 20;
+    setInterval(() => {
+      if (scene.querySelectorAll('.floating-text').length < MAX_TEXTS) {
+        createFloatingText3D();
+      }
+    }, 500);
 
     let rotateX = 0, rotateY = 0;
     let startX, startY, startDist = null;
